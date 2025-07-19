@@ -1,0 +1,100 @@
+1.
+💬 Q: What is middleware and why is it used in Express.js?
+Answer:
+
+Middleware in Express.js is a function that runs before the final route handler. It has access to the request and response objects, and can either end the request–response cycle or pass control to the next middleware using next().
+
+We use middleware to handle tasks like authentication, logging, parsing JSON, error handling, and more. It helps keep the code modular, reusable, and clean by separating responsibilities.
+
+✅ Bonus: Example You Can Say
+For example, in one of my projects, I used a middleware to check if a user is logged in before allowing access to protected routes like /dashboard. This helped in maintaining security and keeping route logic separate.
+
+
+
+middlewares: middleware are the intermediate state means when req is recived but response is not send mena smid state 
+in this atte we can do many thinng  like handling errr;
+
+midllerware has acees to req,rres
+in express middleware used in form of functions 
+
+common ex: method_overide: it used tp overide the rtype of req when req recived 
+express.urlencode: to understand/prse  the incoming datar from  http or form 
+body  parse: uit used to extarct the incomig data from request bodeis ex url 
+express.staic: when req rec it used to serve the static file slike css and js 
+
+
+midlleware chinig: midlleawra can be nested where  one midlle pass control to ther and in this chainag any midlldeware and send the respionse 
+and break chaing 
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+2.
+what they can do :
+-can execute code
+-can change req,res 
+=can stop req res cycle 
+-call the next middleware
+
+
+ What is app.use() in Express.js?
+In Express.js, app.use() is a method to mount middleware functions at a specified path. It tells the app to use that middleware for every request that matches the path (or all paths, if none is specified).
+
+✅ General Syntax:
+js
+Copy
+Edit
+app.use([path], middlewareFunction)
+If you don’t give a path, it defaults to / — i.e., all requests go through it.
+
+
+3. next : it is used to call nesxt middleware if current midllewaree doesnt send res or end the req-res cycle 
+if there is no next midlleware our program work normal means like it alwsys work mean pass to route handers 
+
+
+middleware always work iresepcytive of req route body 
+we aso can add code after next in middle ware but we don usa=ually do that
+
+
+
+4. creatying utility middleware
+ex: buidking logger: used to show important info ex: requets method , request time 
+
+if we want that middleware work perfectly we have to makes  sure it should be before actual routfes 
+
+
+5. app.use=
+-in app .use we have two para oath and midd fun 
+path is used for specfic path middl func if path not  given work foir all path 
+-if path given work for given route 
+
+-midd calback fucn :
+it acan be arrya of midd functions, or series of func , cobinationof both  
+
+mostly dev use restgfful api not as listings/include
+but use as /api/listing/include and hanlde authentication at /api middleware
+
+
+- also in the end of all midlleware we make last midd usee to handlw  if no case match ex 404 
+
+
+
+
+
+6.api token as query string =
+we have to make middleware for /api which send the data as req recived but we have to make sure before sneding that it checks of the acess troken is passed in the query string  (for security reasin )
+
+
+
+7. passing multiple midd
+ forst store midd fun in var ex checkpoint
+ pass to the speciic route handler 
+
+
+
+
+
+8. error handlin(express builtin): whenwve some runtime erors happem we  can hanle it via middlewares 
+ using throw new error 
+
+
+but express also provides the defult error handler;
