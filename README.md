@@ -87,7 +87,7 @@ NestIn/
 ### 1. Clone Repository
 
 git clone [https://github.com/Tushar-6969/NestIn](https://github.com/Tushar-6969/NestIn)
-cd nestin
+cd NestIn
 
 ### 2. Install Dependencies
 
